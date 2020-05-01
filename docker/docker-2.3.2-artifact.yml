@@ -1,8 +1,8 @@
-version: '3.7'
+version: '3.1'
 services:
   php:
     image: PHP_IMAGE
-    init: true
+#    init: true
     volumes:
       - ../app/code:/var/www/magento2/app/code:rw
       - ../app/design:/var/www/magento2/app/design:rw
@@ -15,10 +15,10 @@ services:
       - ../vehiclemap:/var/www/magento2/vehiclemap:rw
       - ../soapclient:/var/www/magento2/pub/soapclient:rw
     command: sudo bash -c "/usr/sbin/sshd && /usr/local/sbin/php-fpm"
-    configs:
-      - source: phpunit
-        target: /var/www/magento2/dev/tests/unit/phpunit.xml
-        mode: 0664
-configs:
-  phpunit:
-    file: ./config/phpunit/phpunit.xml 
+#    configs:
+#      - source: phpunit
+#        target: /var/www/magento2/dev/tests/unit/phpunit.xml
+#        mode: 0664
+#configs:
+#  phpunit:
+#    file: ./config/phpunit/phpunit.xml 
